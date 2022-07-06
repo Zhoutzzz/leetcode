@@ -4,7 +4,7 @@ type MyCalendar struct {
 	calender [][]int
 }
 
-func Constructor9() MyCalendar {
+func Constructor() MyCalendar {
 	return MyCalendar{calender: [][]int{}}
 }
 
