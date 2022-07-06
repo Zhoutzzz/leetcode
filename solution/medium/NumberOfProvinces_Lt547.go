@@ -1,4 +1,4 @@
-package main
+package medium
 
 func findCircleNum(isConnected [][]int) (ans int) {
 	vis := make([]bool, len(isConnected))

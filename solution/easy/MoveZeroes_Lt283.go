@@ -1,4 +1,4 @@
-package main
+package easy
 
 func moveZeroes(nums []int) {
 	l := len(nums)

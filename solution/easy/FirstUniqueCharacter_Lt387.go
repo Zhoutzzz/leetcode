@@ -1,4 +1,4 @@
-package main
+package easy
 
 func firstUniqChar(s string) int {
 	cnt := [26]int{}

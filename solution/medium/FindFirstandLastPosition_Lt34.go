@@ -1,4 +1,4 @@
-package main
+package medium
 
 func searchRange(nums []int, target int) (res []int) {
 	if target > nums[len(nums)-1] || target < nums[0] {

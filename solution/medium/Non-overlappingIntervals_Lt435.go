@@ -1,4 +1,4 @@
-package main
+package medium
 
 func eraseOverlapIntervals(intervals [][]int) (res int) {
 	quickSort(intervals, 0, len(intervals)-1)

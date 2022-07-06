@@ -1,6 +1,8 @@
-package main
+package medium
 
-func spiralMatrix(m int, n int, head *ListNode) (res [][]int) {
+import "leetcode/solution/common"
+
+func spiralMatrix(m int, n int, head *common.ListNode) (res [][]int) {
 	res = make([][]int, m)
 	for i := 0; i < m; i++ {
 		q := make([]int, n)

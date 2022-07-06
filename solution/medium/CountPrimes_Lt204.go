@@ -1,4 +1,4 @@
-package main
+package medium
 
 func countPrimes(n int) int {
 	res := 0

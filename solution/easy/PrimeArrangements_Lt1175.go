@@ -1,4 +1,4 @@
-package main
+package easy
 
 const mod int = 1e9 + 7
 

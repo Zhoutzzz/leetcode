@@ -1,4 +1,4 @@
-package main
+package easy
 
 func minCostClimbingStairs(cost []int) int {
 	costLen := len(cost)

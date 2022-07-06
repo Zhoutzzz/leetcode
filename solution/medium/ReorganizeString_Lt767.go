@@ -1,4 +1,4 @@
-package main
+package medium
 
 func reorganizeString(S string) string {
 	arr := ['z']int{}

@@ -1,6 +1,6 @@
-package main
+package medium
 
-func canCompleteCircuit(gas []int, cost []int) int {
+func CanCompleteCircuit(gas []int, cost []int) int {
 	curGas := 0
 	start := 0
 	for ; start < len(gas); start++ {

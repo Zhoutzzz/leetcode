@@ -1,4 +1,4 @@
-package main
+package medium
 
 type MyCalendar struct {
 	calender [][]int
