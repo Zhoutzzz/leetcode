@@ -4,7 +4,7 @@ type MagicDictionary struct {
 	dict []string
 }
 
-func Constructor() MagicDictionary {
+func Constructor1() MagicDictionary {
 	return MagicDictionary{}
 }
 
