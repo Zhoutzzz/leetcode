@@ -1,6 +1,9 @@
 package hard
 
-import "sort"
+import (
+	"leetcode/solution/common"
+	"sort"
+)
 
 func maximumGap(nums []int) int {
 	if len(nums) < 2 {
@@ -17,7 +20,7 @@ func maximumGap(nums []int) int {
 		if cur < 0 {
 			cur *= -1
 		}
-		maxGap = max(cur, maxGap)
+		maxGap = common.Max(cur, maxGap)
 		prev = nums[i]
 	}
 
