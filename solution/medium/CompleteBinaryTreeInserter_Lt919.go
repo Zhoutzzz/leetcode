@@ -15,7 +15,7 @@ type CBTInserter struct {
 	nodeQueue []*common.TreeNode
 }
 
-func Constructor(root *common.TreeNode) CBTInserter {
+func Constructorx(root *common.TreeNode) CBTInserter {
 	nodes := []*common.TreeNode{root}
 	return CBTInserter{
 		root,
