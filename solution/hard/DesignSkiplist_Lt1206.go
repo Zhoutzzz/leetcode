@@ -1,6 +1,9 @@
 package hard
 
-import "math/rand"
+import (
+	"leetcode/solution/common"
+	"math/rand"
+)
 
 const maxLevel = 32
 const pFactor = 0.25
@@ -54,7 +57,7 @@ func (s *Skiplist) Add(num int) {
 		update[i] = curr
 	}
 	lv := s.randomLevel()
-	s.level = max(s.level, lv)
+	s.level = common.Max(s.level, lv)
 	newNode := &SkiplistNode{num, make([]*SkiplistNode, lv)}
 	for i, node := range update[:lv] {
 		// 对第 i 层的状态进行更新，将当前元素的 forward 指向新的节点
@@ -87,13 +90,6 @@ func (s *Skiplist) Erase(num int) bool {
 		s.level--
 	}
 	return true
-}
-
-func max(a, b int) int {
-	if b > a {
-		return b
-	}
-	return a
 }
 
 /**
