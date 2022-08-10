@@ -7,7 +7,7 @@ type MyCircularQueue struct {
 	size  int
 }
 
-func Constructor(k int) MyCircularQueue {
+func Constructore(k int) MyCircularQueue {
 	queue := make([]int, k)
 	for i := 0; i < k; i++ {
 		queue[i] = -1
