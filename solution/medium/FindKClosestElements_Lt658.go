@@ -19,11 +19,3 @@ func findClosestElements(arr []int, k int, x int) []int {
 	}
 	return arr[i+1 : j]
 }
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	} else {
-		return x
-	}
-}
