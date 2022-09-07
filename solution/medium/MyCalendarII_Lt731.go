@@ -2,8 +2,8 @@ package medium
 
 import "leetcode/solution/common"
 
-type pair struct{ first, second int }
-type MyCalendarTwo map[int]pair
+type pairs struct{ first, second int }
+type MyCalendarTwo map[int]pairs
 
 func Constructor2() MyCalendarTwo {
 	return MyCalendarTwo{}
