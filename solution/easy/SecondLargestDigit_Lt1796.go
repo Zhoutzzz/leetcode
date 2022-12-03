@@ -1,5 +1,7 @@
 package easy
 
+import "unicode"
+
 func secondHighest(s string) int {
 	first, second := -1, -1
 	for _, c := range s {
