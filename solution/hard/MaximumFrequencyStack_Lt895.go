@@ -1,5 +1,7 @@
 package hard
 
+import "leetcode/solution/common"
+
 type FreqStack struct {
 	freq    map[int]int
 	group   map[int][]int
@@ -13,7 +15,7 @@ func ConstructorFS() FreqStack {
 func (f *FreqStack) Push(val int) {
 	f.freq[val]++
 	f.group[f.freq[val]] = append(f.group[f.freq[val]], val)
-	f.maxFreq = max(f.maxFreq, f.freq[val])
+	f.maxFreq = common.Max(f.maxFreq, f.freq[val])
 }
 
 func (f *FreqStack) Pop() int {
@@ -24,11 +26,4 @@ func (f *FreqStack) Pop() int {
 		f.maxFreq--
 	}
 	return val
-}
-
-func max(a, b int) int {
-	if b > a {
-		return b
-	}
-	return a
 }
