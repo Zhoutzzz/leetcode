@@ -32,6 +32,13 @@ func Max(x, y int) int {
 	}
 }
 
+func Gcd(a, b int) int {
+	if b != 0 {
+		return Gcd(b, a%b)
+	}
+	return a
+}
+
 func BinarySearch(nums []int, start, end, target int) int {
 	mid := (start + end) / 2
 
