@@ -79,3 +79,10 @@ func Partition(arr [][]int, left, right int) int {
 	arr[pivot], arr[index-1] = arr[index-1], arr[pivot]
 	return index - 1
 }
+
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
