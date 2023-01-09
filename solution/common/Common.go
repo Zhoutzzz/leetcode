@@ -86,3 +86,12 @@ func Abs(x int) int {
 	}
 	return x
 }
+
+func Equal(a, b []int) bool {
+	for i, x := range a {
+		if x != b[i] {
+			return false
+		}
+	}
+	return true
+}
