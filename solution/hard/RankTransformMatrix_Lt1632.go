@@ -5,45 +5,6 @@ import (
 	"sort"
 )
 
-type unionFind struct {
-	p, size []int
-}
-
-func newUnionFind(n int) *unionFind {
-	p := make([]int, n)
-	size := make([]int, n)
-	for i := range p {
-		p[i] = i
-		size[i] = 1
-	}
-	return &unionFind{p, size}
-}
-
-func (uf *unionFind) find(x int) int {
-	if uf.p[x] != x {
-		uf.p[x] = uf.find(uf.p[x])
-	}
-	return uf.p[x]
-}
-
-func (uf *unionFind) union(a, b int) {
-	pa, pb := uf.find(a), uf.find(b)
-	if pa != pb {
-		if uf.size[pa] > uf.size[pb] {
-			uf.p[pb] = pa
-			uf.size[pa] += uf.size[pb]
-		} else {
-			uf.p[pa] = pb
-			uf.size[pb] += uf.size[pa]
-		}
-	}
-}
-
-func (uf *unionFind) reset(x int) {
-	uf.p[x] = x
-	uf.size[x] = 1
-}
-
 func matrixRankTransform(matrix [][]int) [][]int {
 	m, n := len(matrix), len(matrix[0])
 	type pair struct{ i, j int }
@@ -64,25 +25,25 @@ func matrixRankTransform(matrix [][]int) [][]int {
 		vs = append(vs, v)
 	}
 	sort.Ints(vs)
-	uf := newUnionFind(m + n)
+	uf := common.NewUnionFind(m + n)
 	rank := make([]int, m+n)
 	for _, v := range vs {
 		ps := d[v]
 		for _, p := range ps {
-			uf.union(p.i, p.j+m)
+			uf.Union(p.i, p.j+m)
 		}
 		for _, p := range ps {
 			i, j := p.i, p.j
-			rank[uf.find(i)] = common.Max(rank[uf.find(i)], common.Max(rowMax[i], colMax[j]))
+			rank[uf.Find(i)] = common.Max(rank[uf.Find(i)], common.Max(rowMax[i], colMax[j]))
 		}
 		for _, p := range ps {
 			i, j := p.i, p.j
-			ans[i][j] = 1 + rank[uf.find(i)]
+			ans[i][j] = 1 + rank[uf.Find(i)]
 			rowMax[i], colMax[j] = ans[i][j], ans[i][j]
 		}
 		for _, p := range ps {
-			uf.reset(p.i)
-			uf.reset(p.j + m)
+			uf.Reset(p.i)
+			uf.Reset(p.j + m)
 		}
 	}
 	return ans

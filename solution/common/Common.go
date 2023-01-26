@@ -95,3 +95,42 @@ func Equal(a, b []int) bool {
 	}
 	return true
 }
+
+type UnionFind struct {
+	p, size []int
+}
+
+func NewUnionFind(n int) *UnionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &UnionFind{p, size}
+}
+
+func (uf *UnionFind) Find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.Find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *UnionFind) Union(a, b int) {
+	pa, pb := uf.Find(a), uf.Find(b)
+	if pa != pb {
+		if uf.size[pa] > uf.size[pb] {
+			uf.p[pb] = pa
+			uf.size[pa] += uf.size[pb]
+		} else {
+			uf.p[pa] = pb
+			uf.size[pb] += uf.size[pa]
+		}
+	}
+}
+
+func (uf *UnionFind) Reset(x int) {
+	uf.p[x] = x
+	uf.size[x] = 1
+}
