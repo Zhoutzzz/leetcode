@@ -5,8 +5,8 @@ import "leetcode/solution/common"
 const mod int = 1e9 + 7
 
 func nthMagicalNumber(n, a, b int) int {
-	l := min(a, b)
-	r := n * min(a, b)
+	l := common.Min(a, b)
+	r := n * common.Min(a, b)
 	c := a / common.Gcd(a, b) * b
 	for l <= r {
 		mid := (l + r) / 2
@@ -18,11 +18,4 @@ func nthMagicalNumber(n, a, b int) int {
 		}
 	}
 	return (r + 1) % mod
-}
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
 }
