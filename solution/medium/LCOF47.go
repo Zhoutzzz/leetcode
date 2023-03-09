@@ -14,7 +14,7 @@ func maxValue(grid [][]int) int {
 				f[i][j] = common.Max(f[i][j], f[i-1][j])
 			}
 			if j > 0 {
-				f[i][j] = common.Max((f[i][j], f[i][j-1])
+				f[i][j] = common.Max(f[i][j], f[i][j-1])
 			}
 			f[i][j] += x
 		}
