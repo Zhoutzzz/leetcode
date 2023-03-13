@@ -1,6 +1,8 @@
 package hard
 
-import "leetcode/solution/common"
+import (
+	"leetcode/solution/common"
+)
 
 func trap(height []int) (ans int) {
 	left, right := 0, len(height)-1
@@ -17,4 +19,27 @@ func trap(height []int) (ans int) {
 		}
 	}
 	return
+}
+
+type mystr struct {
+	length int
+}
+
+func (a mystr) Len() int {
+	//TODO implement me
+	return a.length
+}
+
+func (mystr) Less(i, j int) bool {
+	//TODO implement me
+	return i > j
+}
+
+func (mystr) Swap(i, j int) {
+	//TODO implement me
+	i = j
+}
+
+func a() interface{} {
+	return nil
 }
