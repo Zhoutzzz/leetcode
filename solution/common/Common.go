@@ -134,3 +134,13 @@ func (uf *UnionFind) Reset(x int) {
 	uf.p[x] = x
 	uf.size[x] = 1
 }
+
+func Sign(num int) int {
+	if num == 0 {
+		return 0
+	}
+	if num > 0 {
+		return 1
+	}
+	return -1
+}
