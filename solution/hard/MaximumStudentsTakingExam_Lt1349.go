@@ -1,7 +1,6 @@
 package hard
 
 import (
-	"leetcode/solution/common"
 	"math"
 	"math/bits"
 )
@@ -57,7 +56,7 @@ func maxStudents(seats [][]byte) int {
 			mx := 0
 			for upperRowStatus := 0; upperRowStatus < 1<<n; upperRowStatus++ {
 				if isCrossRowsCompliant(status, upperRowStatus) {
-					mx = common.Max(mx, dp(row-1, upperRowStatus))
+					mx = max(mx, dp(row-1, upperRowStatus))
 				}
 			}
 			memo[key] = students + mx
@@ -67,7 +66,7 @@ func maxStudents(seats [][]byte) int {
 
 	mx := 0
 	for i := 0; i < (1 << n); i++ {
-		mx = common.Max(mx, dp(m-1, i))
+		mx = max(mx, dp(m-1, i))
 	}
 	return mx
 }
