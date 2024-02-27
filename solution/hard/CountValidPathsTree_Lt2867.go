@@ -1,6 +1,7 @@
 package hard
 
 // 埃氏筛
+
 const N = 100001
 
 var is_prime [N]bool
