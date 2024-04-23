@@ -1,0 +1,19 @@
+func maxSatisfied(customers []int, grumpy []int, minutes int) int {
+    total := 0
+    n := len(customers)
+    for i := 0; i < n; i++ {
+        if grumpy[i] == 0 {
+            total += customers[i]
+        }
+    }
+    increase := 0
+    for i := 0; i < minutes; i++ {
+        increase += customers[i] * grumpy[i]
+    }
+    maxIncrease := increase
+    for i := minutes; i < n; i++ {
+        increase = increase - customers[i-minutes]*grumpy[i-minutes] + customers[i]*grumpy[i]
+        maxIncrease = max(maxIncrease, increase)
+    }
+    return total + maxIncrease
+}
